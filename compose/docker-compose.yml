@@ -1,0 +1,38 @@
+version: "3.8"
+
+#network
+network:
+  my-network:
+    driver: bridge
+#volumes
+volumes:
+  dir-site
+    driver_opt: D:\Docker\Docker-Sample\compose\sites\
+    o: bind
+
+service:
+  #container php
+  my-php:
+    container_name: php-product
+    build:
+      dockerfile: Dockerfile
+    hostname: php
+    restart: always
+    network:
+      - my-network
+    volomes:
+    - dir-site:/home/sites
+  #container httpd
+  my-httpd:
+    container_name: c-httpd01
+    image: httpd:latest
+    hostname: httpd
+    restart: always
+    network:
+      - my-network
+    volumes:
+      - dir-site:/home/sites/
+    ports:
+      - "9999:80"
+      - "443:443"
+    

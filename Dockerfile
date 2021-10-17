@@ -10,6 +10,8 @@ RUN yum install htop -y
 WORKDIR /var/www/html
 EXPOSE 80
 
+ADD . /var/www/html/
+
 ENTRYPOINT [ "httpd" ]
 
 CMD [ "-D", "FOREGROUND" ]

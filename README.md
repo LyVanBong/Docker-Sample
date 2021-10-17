@@ -363,3 +363,23 @@ CMD command param1 param2
 ```
 CMD ["tham-số1", "tham-số2"]
 ```
+# Lệnh docker-compose tạo và chạy các dịch vụ Docker
+## Lệnh docker-compose
+
+
+Về nội dung bên trong file docker-compose.yml sẽ tìm hiểu phía sau, giờ giả sử đang có file này, từ thư mục chứa file này gõ lệnh docker-compose với tham số phù hợp để thi hành những tác vụ như:
+- Tạo và chạy các thành phần định nghĩa trong docker-compose.yml (các dịch vụ, image, container, mạng, đĩa ...).
+```
+docker-compose up
+```
+- Dừng và xóa: image, container, mạng, đĩa tạo ra bởi docker-compose up
+```
+docker-compose down
+```
+- Theo dõi Logs từ các dịch vụ
+```
+docker-compose logs [SERVICES]
+```
+> Ngoài ra còn có các lệnh nhỏ khác như exec ps restart ... sẽ tìm hiều dần khi cần dùng đến.
+
+[bài hưỡng dẫn mẫu docker-compose](https://xuanthulab.net/lenh-docker-compose-tao-va-chay-cac-dich-vu-docker.html)
