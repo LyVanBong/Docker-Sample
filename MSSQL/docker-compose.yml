@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  docker-msql:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: Docker-MSSQL
+    restart: always
+    hostname: mssql
+    environment:
+      SA_PASSWORD: passwd@123
+      ACCEPT_EULA: Y
+
+    volumes:
+      - D:\Docker\MSSQL\data:/var/opt/mssql/data
+      - D:\Docker\MSSQL\log:/var/opt/mssql/log
+      - D:\Docker\MSSQL\secrets:/var/opt/mssql/secrets
+      - D:\Docker\MSSQL\backup:/var/opt/mssql/backup
+    ports:
+      - "1433:1433"
+
+#Tiếp theo, vào terminal của container bằng lệnh:
+#docker exec -it mssqlserver bash
